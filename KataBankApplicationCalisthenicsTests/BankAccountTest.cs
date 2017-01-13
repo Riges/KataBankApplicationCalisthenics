@@ -39,7 +39,19 @@ namespace KataBankApplicationCalisthenicsTests
             var firstBankAccount = new BankAccount(firstClient, new Amount(25.99m));
             var secoundBankAccount = new BankAccount(secondClient);
 
-            Check.That(firstBankAccount.Transfert(new Amount(16), secoundBankAccount)).IsEqualTo(new BankAccount(firstClient, new Amount(9.99m)));
+            Check.That(firstBankAccount.Transfert(new Amount(16), secoundBankAccount).Item1).IsEqualTo(new BankAccount(firstClient, new Amount(9.99m)));
+        }
+
+        [Fact]
+        public void Tranfert5ToAnotherBankAccountShouldBeAdd5ToTheAnotherBankAccount()
+        {
+            var firstClient = new Client("Dupont");
+            var secondClient = new Client("Martin");
+            var firstBankAccount = new BankAccount(firstClient, new Amount(25.99m));
+            var secoundBankAccount = new BankAccount(secondClient);
+            firstBankAccount.Transfert(new Amount(16), secoundBankAccount);
+
+            Check.That(firstBankAccount.Transfert(new Amount(16), secoundBankAccount).Item2).IsEqualTo(new BankAccount(secondClient, new Amount(16)));
         }
     }
 }

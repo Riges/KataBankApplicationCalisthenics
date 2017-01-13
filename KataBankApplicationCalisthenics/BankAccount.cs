@@ -58,9 +58,11 @@ namespace KataBankApplicationCalisthenics
             return new BankAccount(client, currentAmount.Subtract(amount));
         }
 
-        public BankAccount Transfert(Amount amount, BankAccount destinationBankAccount)
+        public Tuple<BankAccount, BankAccount> Transfert(Amount amount, BankAccount destinationBankAccount)
         {
-            return new BankAccount(client, currentAmount.Subtract(amount));
+            var fromBankAccount = this.Withdrawal(amount);
+            var toBankAccount = destinationBankAccount.Deposite(amount);
+            return Tuple.Create(fromBankAccount, toBankAccount);
         }
     }
 }
