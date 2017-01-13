@@ -11,14 +11,20 @@ namespace KataBankApplicationCalisthenics
             currentAmount = new Amount(0);
         }
 
-        private BankAccount(Amount amount)
+        public BankAccount(Amount amount)
         {
             currentAmount = amount;
         }
 
-        public Amount GetBalance()
+        public override bool Equals(object other)
         {
-            return currentAmount;
+            var that = other as BankAccount;
+            return that != null && that.currentAmount.Equals(currentAmount);
+        }
+
+        public override string ToString()
+        {
+            return $"BankAccount with {currentAmount}";
         }
 
         public BankAccount Deposite(Amount amount)

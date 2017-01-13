@@ -9,13 +9,13 @@ namespace KataBankApplicationCalisthenicsTests
         [Fact]
         public void EmptyAccountShouldHave0ToBalance()
         {
-            Check.That(new BankAccount().GetBalance()).IsEqualTo(new Amount(0));
+            Check.That(new BankAccount()).IsEqualTo(new BankAccount(new Amount(0)));
         }
 
         [Fact]
-        public void Deposite5ShouldReturn5ToBalance()
+        public void Deposite5OnEmptyBankAccountShouldReturn5ToBalance()
         {
-            Check.That(new BankAccount().Deposite(new Amount(5)).GetBalance()).IsEqualTo(new Amount(5));
+            Check.That(new BankAccount().Deposite(new Amount(5))).IsEqualTo(new BankAccount(new Amount(5)));
         }
     }
 }
