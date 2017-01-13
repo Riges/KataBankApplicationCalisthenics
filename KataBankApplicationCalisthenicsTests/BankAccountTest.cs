@@ -11,5 +11,11 @@ namespace KataBankApplicationCalisthenicsTests
         {
             Check.That(new BankAccount().GetBalance()).IsEqualTo(new Amount(0));
         }
+
+        [Fact]
+        public void Deposite5ShouldReturn5ToBalance()
+        {
+            Check.That(new BankAccount().Deposite(new Amount(5)).GetBalance()).IsEqualTo(new Amount(5));
+        }
     }
 }
