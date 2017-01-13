@@ -31,5 +31,10 @@ namespace KataBankApplicationCalisthenics
         {
             return new BankAccount(amount);
         }
+
+        public BankAccount Withdrawal(Amount amount)
+        {
+            return new BankAccount(currentAmount.Subtract(amount));
+        }
     }
 }

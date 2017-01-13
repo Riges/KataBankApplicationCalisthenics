@@ -23,5 +23,11 @@ namespace KataBankApplicationCalisthenicsTests
         {
             Check.That(new Amount(42)).IsNotEqualTo(42);
         }
+
+        [Fact]
+        public void AmountStringifyShouldBeReadable()
+        {
+            Check.That(new Amount(42).ToString()).IsEqualTo("Amount(42)");
+        }
     }
 }

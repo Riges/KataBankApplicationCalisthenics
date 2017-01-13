@@ -14,5 +14,15 @@
             var that = other as Amount;
             return that?.value == value;
         }
+
+        public override string ToString()
+        {
+            return $"Amount({value})";
+        }
+
+        public Amount Subtract(Amount otherAmount)
+        {
+            return new Amount(value - otherAmount.value);
+        }
     }
 }
