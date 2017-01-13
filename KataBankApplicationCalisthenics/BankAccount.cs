@@ -19,7 +19,13 @@ namespace KataBankApplicationCalisthenics
         public override bool Equals(object other)
         {
             var that = other as BankAccount;
-            return that != null && that.currentAmount.Equals(currentAmount);
+            if (that != null)
+            {
+                var otherCurrentAmount = that.currentAmount;
+                return otherCurrentAmount.Equals(currentAmount);
+            }
+
+            return false;
         }
 
         public override string ToString()
@@ -29,7 +35,7 @@ namespace KataBankApplicationCalisthenics
 
         public BankAccount Deposite(Amount amount)
         {
-            return new BankAccount(amount);
+            return new BankAccount(currentAmount.Add(amount));
         }
 
         public BankAccount Withdrawal(Amount amount)

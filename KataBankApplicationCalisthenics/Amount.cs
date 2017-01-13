@@ -24,5 +24,10 @@
         {
             return new Amount(value - otherAmount.value);
         }
+
+        public Amount Add(Amount otherAmount)
+        {
+            return new Amount(value + otherAmount.value);
+        }
     }
 }
