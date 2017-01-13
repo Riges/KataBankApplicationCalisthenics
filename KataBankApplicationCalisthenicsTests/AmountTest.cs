@@ -11,5 +11,11 @@ namespace KataBankApplicationCalisthenicsTests
         {
             Check.That(new Amount(42)).IsEqualTo(new Amount(42));
         }
+
+        [Fact]
+        public void DiffrentAmountIsNotEqual()
+        {
+            Check.That(new Amount(0)).IsNotEqualTo(new Amount(42));
+        }
     }
 }
